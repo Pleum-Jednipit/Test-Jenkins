@@ -6,7 +6,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './gradlew clean build'
+                script {
+                    sh """
+                        ./gradlew clean build
+
+                        docker build -t spring-boot .
+                    """
+                }
             }
         }
         stage('Test') {
