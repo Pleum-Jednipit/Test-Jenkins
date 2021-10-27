@@ -23,7 +23,7 @@ pipeline {
 
                 docker login -u="pleum10" -p="p!eum77710"
 
-                docker push spring-boot
+                docker push pleum10/spring-boot:spring-boot
                 '''
             }
         }
