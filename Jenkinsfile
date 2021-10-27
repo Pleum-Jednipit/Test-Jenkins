@@ -19,11 +19,13 @@ pipeline {
         stage('Build Docker') {
             steps {
                 sh '''
-                docker build -t spring-boot .
+                docker build -t localimage .
 
                 docker login -u="pleum10" -p="p!eum77710"
 
-                docker push pleum10/spring-boot:spring-boot
+                docker tag localimage:latest pleum10/spring-boot:firstimage
+
+                docker push pleum10/spring-boot:firstimage
                 '''
             }
         }
